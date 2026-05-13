@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab6 - Асинхронні запити</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Система керування користувачами та замітками</h1>
+        
+        <!-- Панель входу/реєстрації -->
+        <div id="authPanel" class="card">
+            <h2>🔐 Вхід / Реєстрація</h2>
+            <div id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" required>
+                <button onclick="login()">Увійти</button>
+                <button onclick="showRegisterForm()">Зареєструватися</button>
+            </div>
+            <div id="registerForm" style="display:none;">
+                <input type="text" id="regName" placeholder="ПІБ" required>
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="password" id="regPassword" placeholder="Пароль (мін. 6 символів)" required>
+                <button onclick="register()">Зареєструватися</button>
+                <button onclick="showLoginForm()">← Назад</button>
+            </div>
+        </div>
+
+        <!-- Панель користувача (після входу) -->
+        <div id="userPanel" class="card" style="display:none;">
+            <h2>👋 Вітаю, <span id="userName"></span>!</h2>
+            <button onclick="logout()">🚪 Вийти</button>
+        </div>
+
+        <!-- Список користувачів -->
+        <div id="usersPanel" class="card" style="display:none;">
+            <h2>👥 Список користувачів</h2>
+            <button onclick="loadUsers()">🔄 Оновити список</button>
+            <div id="usersList"></div>
+        </div>
+
+        <!-- Редагування профілю -->
+        <div id="editProfilePanel" class="card" style="display:none;">
+            <h2>✏️ Редагування профілю</h2>
+            <input type="text" id="editName" placeholder="ПІБ">
+            <input type="email" id="editEmail" placeholder="Email">
+            <button onclick="updateProfile()">💾 Зберегти</button>
+            <button onclick="deleteProfile()" class="danger">🗑️ Видалити профіль</button>
+        </div>
+
+        <!-- Замітки -->
+        <div id="notesPanel" class="card" style="display:none;">
+            <h2>📒 Мої замітки</h2>
+            <div class="add-note">
+                <input type="text" id="noteTitle" placeholder="Заголовок">
+                <textarea id="noteContent" placeholder="Текст замітки"></textarea>
+                <button onclick="addNote()">➕ Додати замітку</button>
+            </div>
+            <div id="notesList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
